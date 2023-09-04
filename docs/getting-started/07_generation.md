@@ -28,8 +28,6 @@ Exemple (à ne pas reproduire) dans le fichier `"Utilisateur.tmd"` :
 
 ```yaml
 ---
-# Utilisateur.tmd
----
 module: Users
 uses:
   - References
@@ -43,7 +41,6 @@ Lorsque nous ajoutons un générateur, nous lui attribuons également une liste 
 Exemple (à ne pas reproduire) dans le fichier `"topmodel.config"` :
 
 ```yaml
-# topmodel.config
 ---
 app: Hello World # Nom de l'application
 sql:
@@ -61,7 +58,7 @@ Nous allons enfin pouvoir générer le projet que nous avons bâti jusque là. L
 
 ### Récapitulatif
 
-Afin d'être sûr que vous ayez les mêmes éléments que ce tutoriel et éviter tout oubli, on récapitule d'abord le contenu de l'ensemble des fichiers auquel on ajoute la liste des tags. Copiez les si jamais vous avez un doute.
+Afin d'être sûr que vous ayez les mêmes éléments que ce tutoriel et éviter tout oubli, on récapitule d'abord le contenu de l'ensemble des fichiers auquel on ajoute la liste des tags. Copiez les si jamais vous avez un doute, mais dans tous les cas, assurez vous de récupérer les champs ``tags`` du récap suivant.
 
 `"topmodel.config"` :
 ```yaml
@@ -268,17 +265,17 @@ class:
 ```yaml
 # Domains.tmd
 ---
-module: Users # Module obligatoire, bien qu'inutile dans le cas des domaines
-tags: # tags obligatoires, bien qu'inutiles dans le cas des domaines
+module: Users 
+tags: 
   - ""
 ---
 domain:
-  name: DO_ID # Nom du domaine utilisé dans la définition des propriétés
-  label: ID technique # Description du domaine
+  name: DO_ID
+  label: ID technique 
   ts:
-    type: number # Type TS à utiliser pour ce domaine
+    type: number 
   java:
-    type: long # Type Java à utiliser pour ce domaine
+    type: long 
   sql:
     type: int8
   asDomains:
@@ -292,22 +289,22 @@ domain:
   java:
     type: LocalDate
     imports:
-      - java.time.LocalDate # Imports nécessaires au bon fonctionnement de la classe Java
+      - java.time.LocalDate
   sql:
     type: timestamp
 ---
 domain:
   name: DO_EMAIL
   label: Email
-  length: 50 # Taille maximum de la chaine de caractères représentée par ce domaine
+  length: 50 
   ts:
     type: string
   java:
     type: String
-    annotations: # Ensemble des annotations à ajouter au dessus de la propriété
+    annotations: 
       - text: "@Email" 
         imports:
-          - "javax.validation.constraints.Email" # Imports nécessaires au bon fonctionnement de l'annotation
+          - "javax.validation.constraints.Email" 
   sql:
     type: varchar
 ---
@@ -339,11 +336,11 @@ domain:
   ts:
     genericType: Page<{T}>
     imports:
-      - "@/services/api-types" # Imports nécessaires au bon fonctionnement
+      - "@/services/api-types" 
   java:
     genericType: Page<{T}>
     imports:
-      - "org.springframework.data.domain.Page" # Imports nécessaires au bon fonctionnement de la classe Java
+      - "org.springframework.data.domain.Page"
 ---
 domain:
   name: DO_LIST
